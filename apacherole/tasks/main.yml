@@ -1,0 +1,12 @@
+---
+ - name: installing apache2
+   apt:
+    name: "{{pkg}}"
+    state: present
+   notify: service restart
+ - name: deployment
+   copy:
+    src: /home/ubuntu/gitrepo2/demo/newdemo/apacherole/files/index.html
+    dest: /var/www/html
+   notify: service restart
+      
